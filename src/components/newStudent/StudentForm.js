@@ -30,7 +30,7 @@ function StudentForm(props){
 
                 <div className="new-registration__control">
                     <label>Course Start Date</label>
-                    <input type="date"></input>
+                    <input type="date"/>
                 </div>
 
                 <br/><br/>
