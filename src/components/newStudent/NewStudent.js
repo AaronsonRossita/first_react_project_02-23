@@ -5,7 +5,7 @@ import StudentForm from "./StudentForm";
 function NewStudent(props){
     return(
         <div className="new-registration">
-            <StudentForm/>
+            <StudentForm courses={props.courses}/>
         </div>
     )
 }

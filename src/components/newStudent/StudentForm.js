@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import './StudentForm.css'
 
 function StudentForm(props){
+
+    console.log(props.courses);
+
+    const [studentName, setStudentName] = useState("");
+    const [chosenCourse, setChosenCourse] = useState("");
+    const [courseDate, setCourseDate] = useState("");
+
+    const handleNameChange = (event) => {
+        setStudentName(event.target.value);
+        console.log(event.target.value);
+    }
+
+    const handleCourseChange = (event) => {
+
+    }
 
     return(
         <form>
@@ -9,7 +24,7 @@ function StudentForm(props){
 
                 <div className="new-registration__control">
                     <label>Student name</label>
-                    <input type="text"></input>
+                    <input type="text" onChange={handleNameChange} value={studentName}></input>
                 </div>
 
                 <div className="new-registration__control">
@@ -17,7 +32,8 @@ function StudentForm(props){
                     <select
                         className="course-selection"
                         defaultValue=""
-                        required>
+                        required
+                        onChange={handleCourseChange}>
                         <option value="" disabled>
                             Please Choose A Course
                         </option>
@@ -30,7 +46,7 @@ function StudentForm(props){
 
                 <div className="new-registration__control">
                     <label>Course Start Date</label>
-                    <input type="date"/>
+                    <input type="date" disabled/>
                 </div>
 
                 <br/><br/>
