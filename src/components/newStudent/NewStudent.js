@@ -1,11 +1,13 @@
 import React from "react";
-import "./NewStudent.css";
+import "./NewStudent.css"
 import StudentForm from "./StudentForm";
 
-function NewStudent(){
+function NewStudent(props){
     return(
-        <StudentForm/>
-    );
+        <div className="new-registration">
+            <StudentForm/>
+        </div>
+    )
 }
 
 export default NewStudent;

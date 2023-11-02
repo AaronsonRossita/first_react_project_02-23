@@ -1,31 +1,32 @@
 .new-registration__controls {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     gap: 1rem;
     margin-bottom: 1rem;
     text-align: left;
-}
-
-.new-registration__control label {
+  }
+  
+  .new-registration__control label {
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
-}
-
-.new-registration__control input {
+  }
+  
+  .new-registration__control input {
     font: inherit;
     padding: 0.5rem;
     border-radius: 6px;
     border: 1px solid #ccc;
     width: 20rem;
     max-width: 100%;
-}
-
-.new-registration__actions {
+  }
+  
+  .new-registration__actions {
     text-align: center;
-}
-
-.course-selection {
+  }
+  
+  .course-selection {
     font: inherit;
     text-align: center;
     padding: 0.5rem;
@@ -33,17 +34,17 @@
     border: 1px solid #ccc;
     width: 20rem;
     max-width: 100%;
-}
-
-.course-selection__control {
+  }
+  
+  .course-selection__control {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
     margin: 1rem 0;
-}
-
-input:disabled {
+  }
+  
+  input:disabled {
     background-color: white;
     text-align: center;
-}
+  }

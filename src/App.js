@@ -3,7 +3,6 @@ import NewStudent from './components/newStudent/NewStudent';
 
 function App() {
 
-
   return(
     <div>
       <NewStudent/>
