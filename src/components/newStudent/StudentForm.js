@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import './StudentForm.css'
+import dateFormatting from "../utils/dateUtils";
 
 function StudentForm(props){
-
-    console.log(props.courses);
 
     const [studentName, setStudentName] = useState("");
     const [chosenCourse, setChosenCourse] = useState("");
@@ -11,15 +10,33 @@ function StudentForm(props){
 
     const handleNameChange = (event) => {
         setStudentName(event.target.value);
-        console.log(event.target.value);
     }
 
     const handleCourseChange = (event) => {
-
+        let courseValue = event.target.value;
+        setChosenCourse(courseValue);
+        setCourseDate(dateFormatting(props.courses[courseValue].startDate));
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        const student = {
+            name: studentName,
+            course: chosenCourse,
+            date: courseDate
+        }
+
+        setStudentName("");
+        setChosenCourse("");
+        setCourseDate("");
+
+        console.log(student);
+    }
+
+
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <div>
 
                 <div className="new-registration__control">
@@ -37,16 +54,21 @@ function StudentForm(props){
                         <option value="" disabled>
                             Please Choose A Course
                         </option>
-                        <option value="fullstack">Fullstack Course</option>
+                        {/* <option value="fullstack">Fullstack Course</option>
                         <option value="qa">QA Course</option>
                         <option value="cyber">Cyber Course</option>
-                        <option value="product">Product Management Course</option>
-                     </select>
+                        <option value="product">Product Management Course</option> */}
+                        {Object.keys(props.courses).map( (c) => {
+                            return( 
+                                <option value={props.courses[c].name}>{props.courses[c].displayName}</option> 
+                            )
+                        })}
+                    </select>
                 </div>
 
                 <div className="new-registration__control">
                     <label>Course Start Date</label>
-                    <input type="date" disabled/>
+                    <input type="date" value={courseDate} disabled/>
                 </div>
 
                 <br/><br/>

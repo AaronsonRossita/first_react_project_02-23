@@ -12,6 +12,22 @@ function App() {
     {
       name: "Lara Croft",
       course: "Fullstack"
+    },
+    {
+      name: "Jon Snow",
+      course: "Cyber"
+    },
+    {
+      name: "Harry Potter",
+      course: "QA"
+    },
+    {
+      name: "Lara Croft",
+      course: "Fullstack"
+    },
+    {
+      name: "Jon Snow",
+      course: "Cyber"
     }
   ]
 
@@ -42,11 +58,16 @@ function App() {
     },
   };
 
+  
+
   return(
     <div>
       <NewStudent courses={MOCK_COURSES}/>
-      <RegisteredStudent student={MOCK_STUDENTS[0]}/>
-      <RegisteredStudent student={MOCK_STUDENTS[1]}/>
+      {MOCK_STUDENTS.map( (s) => {
+        return(
+          <RegisteredStudent student={s}/>
+        )
+      })}
     </div>
   );
 }
