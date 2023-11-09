@@ -24,14 +24,19 @@ function StudentForm(props){
         const student = {
             name: studentName,
             course: chosenCourse,
-            date: courseDate
+            displayName:props.courses[chosenCourse].displayName
         }
 
         setStudentName("");
         setChosenCourse("");
         setCourseDate("");
+    
+        props.register(student);
+        props.cancel();
+    }
 
-        console.log(student);
+    const handleCancel = () => {
+        props.cancel();
     }
 
 
@@ -41,7 +46,7 @@ function StudentForm(props){
 
                 <div className="new-registration__control">
                     <label>Student name</label>
-                    <input type="text" onChange={handleNameChange} value={studentName}></input>
+                    <input type="text" onChange={handleNameChange} value={studentName} required></input>
                 </div>
 
                 <div className="new-registration__control">
@@ -74,7 +79,7 @@ function StudentForm(props){
                 <br/><br/>
                 
                 <div className="new-registration__actions">
-                    <button type="button">Cancel</button>
+                    <button type="button" onClick={handleCancel}>Cancel</button>
                     <button type="submit">Register Student</button>
                 </div>
             </div>

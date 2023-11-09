@@ -1,35 +1,9 @@
+import { useState } from 'react';
 import './App.css';
 import NewStudent from './components/newStudent/NewStudent';
 import RegisteredStudent from './components/registeredStudents/RegisteredStudent';
 
 function App() {
-
-  const MOCK_STUDENTS = [
-    {
-      name: "Harry Potter",
-      course: "QA"
-    },
-    {
-      name: "Lara Croft",
-      course: "Fullstack"
-    },
-    {
-      name: "Jon Snow",
-      course: "Cyber"
-    },
-    {
-      name: "Harry Potter",
-      course: "QA"
-    },
-    {
-      name: "Lara Croft",
-      course: "Fullstack"
-    },
-    {
-      name: "Jon Snow",
-      course: "Cyber"
-    }
-  ]
 
   const MOCK_COURSES = {
     fullstack: {
@@ -56,16 +30,29 @@ function App() {
       displayName: "Product Course",
       startDate: new Date(2023, 6, 30),
     },
+    ui_ux:{
+      id: "5",
+      name: "ui_ux",
+      displayName: "UI/UX Course",
+      startDate: new Date(2023, 4, 26),
+    }
   };
 
+  const [students, setStudents] = useState([]);
+
+  const handleStudentRegistration = (data) => {
+    setStudents( (prevStudents) => {
+      return [...prevStudents,data]
+    })
+  }
   
 
   return(
     <div>
-      <NewStudent courses={MOCK_COURSES}/>
-      {MOCK_STUDENTS.map( (s) => {
+      <NewStudent courses={MOCK_COURSES} register={handleStudentRegistration}/>
+      {students.map( (s,i) => {
         return(
-          <RegisteredStudent student={s}/>
+          <RegisteredStudent students={students} courses={MOCK_COURSES}/>
         )
       })}
     </div>
