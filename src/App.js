@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import NewStudent from './components/newStudent/NewStudent';
-import RegisteredStudent from './components/registeredStudents/RegisteredStudent';
+import Registration from './components/registeredStudents/Registration';
 
 function App() {
 
@@ -50,11 +50,7 @@ function App() {
   return(
     <div>
       <NewStudent courses={MOCK_COURSES} register={handleStudentRegistration}/>
-      {students.map( (s,i) => {
-        return(
-          <RegisteredStudent students={students} courses={MOCK_COURSES}/>
-        )
-      })}
+      <Registration courses={MOCK_COURSES} registeredStudents={students}/>
     </div>
   );
 }

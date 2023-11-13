@@ -22,8 +22,8 @@ function StudentForm(props){
         event.preventDefault();
         
         const student = {
-            name: studentName,
-            course: chosenCourse,
+            name: studentName,    // student name from input
+            course: chosenCourse, // course value name (not the displayname)
             displayName:props.courses[chosenCourse].displayName
         }
 
